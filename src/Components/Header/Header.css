@@ -1,0 +1,75 @@
+/* Header.css */
+.app-header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 10;
+  /* Add width to the transition for a smooth resize animation */
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* This rule now resizes the header as well as pushes it */
+.app-header.menu-open {
+  margin-left: 16rem; /* This must match the width of the .nav-panel */
+  width: calc(100% - 16rem); /* THE FIX: Recalculate width */
+}
+
+.header-content {
+  max-width: 100rem; # Changed from 80
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+} */
+
+.app-header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 10;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-header.menu-open {
+  margin-left: 16rem;
+  width: calc(100% - 16rem);
+}
+
+.header-content {
+  max-width: 100rem;
+  /* margin: 0 auto; */
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
