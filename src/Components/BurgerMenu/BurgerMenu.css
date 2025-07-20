@@ -1,50 +1,46 @@
+/* BurgerMenu.css */
 .burger-button {
-  background-color: #ffffff;
-  border: none;
-  border-radius: 12px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 2.5rem;
-  width: 2.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  justify-content: space-around;
+  height: 40px;
+  width: 40px;
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   cursor: pointer;
   z-index: 1100;
+  position: relative;
 }
 
 .burger-line {
   height: 2px;
   width: 100%;
-  background-color: #1a202c;
+  background-color: var(--text-primary);
   transition: all 0.3s ease;
   border-radius: 1px;
 }
 
-.burger-button.open .line-1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.burger-button.open .line-2 {
-  opacity: 0;
-}
-.burger-button.open .line-3 {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
+/*
+  The following rules that created the 'X' animation have been removed.
+*/
 
-/* Side Navigation */
 .nav-panel {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10rem;
+  width: 13rem;
   height: 100vh;
-  background-color: #0f172a;
-  color: white;
-  padding: 5rem 2rem;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 6rem 2rem;
   transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
   z-index: 1050;
+  box-shadow: var(--shadow-lg);
 }
 
 .nav-panel.open {
@@ -63,20 +59,28 @@
 
 .nav-links a {
   font-size: 1.1rem;
-  color: white;
+  font-weight: 500;
+  color: var(--nav-text);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #90cdf4;
+  color: var(--nav-text-hover);
 }
 
-/* Blur Overlay */
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  /* backdrop-filter: blur(2px);S */
+  background: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(2px); */
   z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-panel.open + .menu-overlay {
+  opacity: 1;
+  pointer-events: all;
 }

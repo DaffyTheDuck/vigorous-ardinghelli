@@ -1,52 +1,17 @@
 /* Header.css */
 .app-header {
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  position: relative;
+  background-color: var(
+    --bg-secondary
+  ); /* Ensures header is dark in dark mode */
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
   z-index: 10;
-  /* Add width to the transition for a smooth resize animation */
-  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding is included in the width */
-}
-
-/* This rule now resizes the header as well as pushes it */
-.app-header.menu-open {
-  margin-left: 16rem; /* This must match the width of the .nav-panel */
-  width: calc(100% - 16rem); /* THE FIX: Recalculate width */
-}
-
-.header-content {
-  max-width: 100rem; # Changed from 80
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-  display: flex;
-  align-items: center;
-  height: 4rem;
-}
-
-.logo-container {
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #2d3748;
-} */
-
-.app-header {
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  position: relative;
-  z-index: 10;
-  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out,
+    background-color 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .app-header.menu-open {
@@ -55,21 +20,51 @@
 }
 
 .header-content {
-  max-width: 100rem;
-  /* margin: 0 auto; */
-  padding: 0 1rem;
   display: flex;
   align-items: center;
-  height: 4rem;
+  justify-content: space-between;
+  height: 4.5rem;
+  padding: 0 2rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .logo-container {
   flex-shrink: 0;
-  margin-left: 1rem;
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-primary);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
 }

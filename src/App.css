@@ -1,18 +1,71 @@
 /* App.css */
-.app-container {
-  background-color: #f7fafc;
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-sans: "Inter", sans-serif;
+
+  /* Light Theme Palette (Unified & Soft) */
+  --bg-primary: #faf4ed;
+  --bg-secondary: #faf4ed;
+  --text-primary: #575279;
+  --text-secondary: #797593;
+  --text-muted: #9893a5;
+  --border-color: #dcd7d6;
+  --accent-primary: #eb6f92;
+  --accent-primary-hover: #d76183;
+  --accent-light: #fbe6ec;
+  --shadow-sm: 0 1px 2px 0 rgba(87, 82, 121, 0.07);
+  --shadow-md: 0 4px 6px -1px rgba(87, 82, 121, 0.08),
+    0 2px 4px -1px rgba(87, 82, 121, 0.07);
+  --shadow-lg: 0 10px 15px -3px rgba(87, 82, 121, 0.09),
+    0 4px 6px -2px rgba(87, 82, 121, 0.07);
+  --nav-bg: #1f1d2e;
+  --nav-text: #e0def4;
+  --nav-text-hover: #eb6f92;
 }
 
-/* .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-} */
+[data-theme="dark"] {
+  /* NEW Dark Theme Palette (Sophisticated Charcoal) */
+  --bg-primary: #18181b; /* A deep, neutral charcoal */
+  --bg-secondary: #27272a; /* A slightly lighter charcoal for cards */
+  --text-primary: #f4f4f5; /* Soft, near-white text */
+  --text-secondary: #a1a1aa; /* Muted gray for secondary text */
+  --text-muted: #71717a; /* Darker gray for placeholders */
+  --border-color: #3f3f46; /* Subtle border */
+  --accent-primary: #f472b6; /* A slightly brighter pink for better contrast */
+  --accent-primary-hover: #ec4899;
+  --accent-light: #3e2f42; /* A deep, complementary tone for focus rings */
+  --nav-bg: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+.app-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 10px;
+  border: 3px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-primary);
+}
